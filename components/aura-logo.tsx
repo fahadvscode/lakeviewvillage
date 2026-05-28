@@ -1,38 +1,37 @@
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { AURA_LOGO_ON_LIGHT } from "@/lib/images"
+import { AURA_LOGO, AURA_LOGO_ON_LIGHT } from "@/lib/images"
 
 const LOGO_WIDTH = 1201
 const LOGO_HEIGHT = 661
 
 type AuraLogoProps = {
+  /** `light` = site background; `dark` = hero overlay or dark footer */
+  tone?: "light" | "dark"
   className?: string
-  /** Logo image width inside the white panel */
   imageClassName?: string
   priority?: boolean
 }
 
 export function AuraLogo({
+  tone = "light",
   className,
   imageClassName,
   priority = false,
 }: AuraLogoProps) {
+  const onLight = tone === "light"
+
   return (
-    <span
-      className={cn(
-        "inline-flex shrink-0 items-center justify-center bg-white",
-        "rounded-sm border border-border/40 px-4 py-2.5 shadow-sm sm:px-5 sm:py-3",
-        className,
-      )}
-    >
+    <span className={cn("inline-flex shrink-0 items-center", className)}>
       <Image
-        src={AURA_LOGO_ON_LIGHT}
+        src={onLight ? AURA_LOGO_ON_LIGHT : AURA_LOGO}
         alt="Aura Lakeview Village"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
         priority={priority}
         className={cn(
-          "block h-auto w-[min(280px,70vw)] max-w-none object-contain sm:w-[320px] lg:w-[360px]",
+          "h-9 w-auto object-contain sm:h-10 md:h-11 lg:h-12",
+          !onLight && "drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]",
           imageClassName,
         )}
       />

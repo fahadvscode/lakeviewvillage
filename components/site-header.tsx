@@ -32,13 +32,13 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-border/50 bg-background/98 py-3 backdrop-blur-md"
-          : "bg-transparent py-4 md:py-5"
+          ? "border-b border-border/50 bg-background py-3 shadow-sm backdrop-blur-md"
+          : "border-b border-border/20 bg-background/90 py-3 backdrop-blur-md md:py-4"
       }`}
     >
       <div className="page-container flex items-center justify-between">
         <Link href="/" className="block shrink-0">
-          <AuraLogo priority />
+          <AuraLogo tone="light" priority />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -46,11 +46,7 @@ export function SiteHeader() {
             <Link
               key={item.name}
               href={item.href}
-              className={`link-underline text-sm uppercase tracking-wide transition-colors ${
-                scrolled
-                  ? "text-foreground/80 hover:text-foreground"
-                  : "text-white/80 hover:text-white"
-              }`}
+              className="link-underline text-sm uppercase tracking-wide text-foreground/80 transition-colors hover:text-foreground"
             >
               {item.name}
             </Link>
@@ -60,9 +56,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           <Button
             asChild
-            className={`hidden rounded-none px-8 text-xs uppercase tracking-widest sm:inline-flex ${
-              scrolled ? "" : "bg-white text-foreground hover:bg-white/90"
-            }`}
+            className="hidden rounded-none px-8 text-xs uppercase tracking-widest sm:inline-flex"
           >
             <Link href="#register">Register</Link>
           </Button>
@@ -72,9 +66,7 @@ export function SiteHeader() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={
-                  scrolled ? "" : "text-white hover:bg-white/10 hover:text-white"
-                }
+                className="text-foreground"
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
@@ -86,7 +78,7 @@ export function SiteHeader() {
             >
               <div className="flex h-full flex-col p-8">
                 <div className="flex items-center justify-between gap-4">
-                  <AuraLogo className="shadow-none" imageClassName="w-[min(280px,65vw)] sm:w-[300px]" />
+                  <AuraLogo tone="dark" />
                   <Button
                     variant="ghost"
                     size="icon"

@@ -31,10 +31,7 @@ export function SiteFooter() {
         <div className="grid gap-12 py-20 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <Link href="/" className="inline-block">
-              <AuraLogo
-                className="shadow-md"
-                imageClassName="w-[min(360px,85vw)] sm:w-[420px] lg:w-[440px]"
-              />
+              <AuraLogo tone="dark" imageClassName="h-10 sm:h-11 md:h-12" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-background/70">
               {AURA.name} by {AURA.builder}—{AURA.productType} in Mississauga&apos;s{" "}
