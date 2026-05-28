@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, X } from "lucide-react"
 import { AURA } from "@/lib/aura-config"
+import { AuraLogo } from "@/components/aura-logo"
 
 const navigation = [
   { name: "Aura", href: AURA.canonicalPath },
@@ -32,25 +33,12 @@ export function SiteHeader() {
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
           ? "border-b border-border/50 bg-background/98 py-3 backdrop-blur-md"
-          : "bg-transparent py-6"
+          : "bg-transparent py-4 md:py-5"
       }`}
     >
       <div className="page-container flex items-center justify-between">
-        <Link href="/" className="group flex flex-col">
-          <span
-            className={`font-serif text-2xl tracking-tight transition-colors ${
-              scrolled ? "text-foreground" : "text-white"
-            }`}
-          >
-            AURA
-          </span>
-          <span
-            className={`text-[10px] uppercase tracking-[0.3em] transition-colors ${
-              scrolled ? "text-muted-foreground" : "text-white/70"
-            }`}
-          >
-            Lakeview Village
-          </span>
+        <Link href="/" className="block shrink-0">
+          <AuraLogo priority />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -97,8 +85,8 @@ export function SiteHeader() {
               className="w-full border-none bg-primary p-0 sm:max-w-md"
             >
               <div className="flex h-full flex-col p-8">
-                <div className="flex items-center justify-between">
-                  <span className="font-serif text-2xl text-primary-foreground">AURA</span>
+                <div className="flex items-center justify-between gap-4">
+                  <AuraLogo className="shadow-none" imageClassName="w-[min(280px,65vw)] sm:w-[300px]" />
                   <Button
                     variant="ghost"
                     size="icon"

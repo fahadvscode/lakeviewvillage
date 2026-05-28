@@ -3,7 +3,11 @@
  */
 const auraBase = '/images/aura'
 
+/** Aura wordmark (hosted locally; source: Supabase public storage) */
+export const AURA_LOGO = '/images/aura-logo.webp' as const
+
 export const IMAGES = {
+  logo: AURA_LOGO,
   hero: `${auraBase}/aura-ext-straight.jpg`,
   aura: `${auraBase}/aura-ext-straight.jpg`,
   auraStraight2: `${auraBase}/aura-ext-straight-2.jpg`,

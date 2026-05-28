@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { AURA, INDEPENDENT_DISCLAIMER } from "@/lib/aura-config"
+import { AuraLogo } from "@/components/aura-logo"
 
 const footerLinks = {
   aura: [
@@ -30,10 +31,10 @@ export function SiteFooter() {
         <div className="grid gap-12 py-20 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <Link href="/" className="inline-block">
-              <span className="font-serif text-3xl tracking-tight text-background">AURA</span>
-              <span className="block text-xs uppercase tracking-[0.3em] text-background/50">
-                Lakeview Village
-              </span>
+              <AuraLogo
+                className="shadow-md"
+                imageClassName="w-[min(360px,85vw)] sm:w-[420px] lg:w-[440px]"
+              />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-background/70">
               {AURA.name} by {AURA.builder}—{AURA.productType} in Mississauga&apos;s{" "}
