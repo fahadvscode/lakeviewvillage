@@ -4,10 +4,13 @@
  */
 const auraBase = '/images/aura'
 
+/** Full-color wordmark (best on dark backgrounds) */
 export const AURA_LOGO = '/images/aura-logo.webp' as const
+/** Darkened wordmark for white / light panels */
+export const AURA_LOGO_ON_LIGHT = '/images/aura-logo-on-light.webp' as const
 
 export const IMAGES = {
-  logo: AURA_LOGO,
+  logo: AURA_LOGO_ON_LIGHT,
   hero: `${auraBase}/aura-ext-straight.jpg`,
   aura: `${auraBase}/aura-ext-straight.jpg`,
   auraStraight2: `${auraBase}/aura-ext-straight-2.jpg`,
