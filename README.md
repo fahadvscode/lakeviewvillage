@@ -22,6 +22,10 @@ Connect this repo in Vercel. Set **Environment Variables** in the Vercel dashboa
 
 The anon key is safe in the browser when Row Level Security is enabled. Apply SQL migrations in `supabase/migrations/` via the Supabase SQL Editor.
 
+## Images
+
+All photos and the Aura wordmark are **self-hosted** under `public/images/`. Reference paths only via `lib/images.ts` (`IMAGES` / `AURA_LOGO`). Do not load images from Supabase storage or other CDNs in the UI.
+
 ## Security
 
 - **Never commit** `.env`, `.env.local`, or `.vercel/` — they are gitignored.

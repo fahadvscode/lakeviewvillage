@@ -6,7 +6,7 @@ import { RegisterForm } from "@/components/register-form"
 import { TownhomeProductSchema, BreadcrumbSchema } from "@/components/seo/json-ld"
 import { LastUpdated } from "@/components/last-updated"
 import { AURA, PRICING_DISCLAIMER, auraUrl } from "@/lib/aura-config"
-import { IMAGES } from "@/lib/images"
+import { IMAGES, siteImageUrl } from "@/lib/images"
 import { SITE_URL } from "@/lib/site-config"
 import { ArrowRight, Check } from "lucide-react"
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${AURA.name} by Caivan`,
     description: `Stacked townhomes from the ${AURA.priceFromShort} in Lakeview Village.`,
-    images: [{ url: `${SITE_URL}${IMAGES.hero}`, alt: AURA.name }],
+    images: [{ url: siteImageUrl(IMAGES.hero, SITE_URL), alt: AURA.name }],
   },
 }
 

@@ -16,7 +16,7 @@ import {
   PRICING_DISCLAIMER,
   auraUrl,
 } from "@/lib/aura-config"
-import { IMAGES } from "@/lib/images"
+import { IMAGES, siteImageUrl } from "@/lib/images"
 import { SITE_URL } from "@/lib/site-config"
 import { ArrowRight } from "lucide-react"
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   alternates: { canonical: auraUrl(AURA.floorPlansPath) },
   openGraph: {
     title: "Aura Lakeview Village Floor Plans & Pricing",
-    images: [{ url: `${SITE_URL}${IMAGES.intKitchen}`, alt: "Aura kitchen interior" }],
+    images: [{ url: siteImageUrl(IMAGES.intKitchen, SITE_URL), alt: "Aura kitchen interior" }],
   },
 }
 

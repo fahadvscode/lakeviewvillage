@@ -11,6 +11,7 @@ import {
 } from "@/lib/neighborhoods"
 import { SITE_URL } from "@/lib/site-config"
 import { AURA } from "@/lib/aura-config"
+import { IMAGES, siteImageUrl } from "@/lib/images"
 import { ArrowRight, MapPin, Train } from "lucide-react"
 import type { Metadata } from "next"
 
@@ -37,6 +38,7 @@ export async function generateMetadata({
       title: neighborhood.metaTitle,
       description: neighborhood.metaDescription,
       url: getNeighborhoodUrl(slug),
+      images: [siteImageUrl(IMAGES.hero, SITE_URL)],
     },
   }
 }
