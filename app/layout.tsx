@@ -82,8 +82,8 @@ export const metadata: Metadata = {
   },
   category: 'Real Estate',
   icons: {
-    icon: '/icon.svg',
-    apple: '/apple-icon.png',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/apple-icon', type: 'image/png' }],
   },
 }
 
