@@ -30,3 +30,4 @@ __v0_jsx-dev-runtime.ts
 # Debug
 npm-debug.log*
 pnpm-debug.log*
+.env*.local

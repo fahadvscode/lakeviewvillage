@@ -13,7 +13,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ArrowRight, Check } from "lucide-react"
-import { supabase } from "@/lib/supabase"
 import type { LeadProject, BuyerType } from "@/lib/supabase"
 
 interface RegisterFormProps {
@@ -21,6 +20,30 @@ interface RegisterFormProps {
   subtitle?: string
   project?: LeadProject
   variant?: "full" | "compact" | "inline"
+}
+
+interface LeadSubmission {
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  project: LeadProject
+  buyer_type: BuyerType
+  consent: boolean
+}
+
+async function submitLead(lead: LeadSubmission) {
+  const response = await fetch("/api/leads", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(lead),
+  })
+
+  const data = (await response.json().catch(() => null)) as { error?: string } | null
+
+  if (!response.ok) {
+    throw new Error(data?.error || "Unable to save your registration.")
+  }
 }
 
 export function RegisterForm({ 
@@ -52,7 +75,7 @@ export function RegisterForm({
     const leadBuyerType = (buyerType || "end-user") as BuyerType
 
     try {
-      const { error } = await supabase.from("lakeview_village_leads").insert({
+      await submitLead({
         first_name: firstName,
         last_name: lastName,
         email,
@@ -61,12 +84,11 @@ export function RegisterForm({
         buyer_type: leadBuyerType,
         consent: variant === "full" ? consent : true,
       })
-
-      if (error) throw error
       setIsSubmitted(true)
     } catch (err) {
-      console.error("Lead submission error:", err)
-      setSubmitError("Something went wrong. Please try again.")
+      const message = err instanceof Error ? err.message : "Something went wrong. Please try again."
+      console.error("Lead submission error:", message)
+      setSubmitError(message)
     } finally {
       setIsSubmitting(false)
     }
@@ -95,7 +117,7 @@ export function RegisterForm({
       setIsSubmitting(true)
       const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement)?.value
       try {
-        const { error } = await supabase.from("lakeview_village_leads").insert({
+        await submitLead({
           first_name: "Newsletter",
           last_name: "Signup",
           email: email || "",
@@ -104,11 +126,11 @@ export function RegisterForm({
           buyer_type: "end-user",
           consent: true,
         })
-        if (error) throw error
         setIsSubmitted(true)
       } catch (err) {
-        console.error("Lead submission error:", err)
-        setSubmitError("Something went wrong. Please try again.")
+        const message = err instanceof Error ? err.message : "Something went wrong. Please try again."
+        console.error("Lead submission error:", message)
+        setSubmitError(message)
       } finally {
         setIsSubmitting(false)
       }
@@ -129,6 +151,9 @@ export function RegisterForm({
         >
           {isSubmitting ? "Sending..." : "Get VIP Access"}
         </Button>
+        {submitError && (
+          <p className="text-sm text-destructive sm:col-span-2">{submitError}</p>
+        )}
       </form>
     )
   }
@@ -152,6 +177,9 @@ export function RegisterForm({
         >
           {isSubmitting ? "Sending..." : "Register Now"}
         </Button>
+        {submitError && (
+          <p className="text-sm text-destructive">{submitError}</p>
+        )}
       </form>
     )
   }
