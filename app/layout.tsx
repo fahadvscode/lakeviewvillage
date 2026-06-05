@@ -8,6 +8,7 @@ import { WebsiteSchema, RealEstateAgentSchema, LakeviewVillagePlaceSchema } from
 import { AIAnswerSection } from '@/components/seo/ai-answer-blocks'
 import { SITE_URL } from '@/lib/site-config'
 import { AURA } from '@/lib/aura-config'
+import { SEO, SECONDARY_KEYWORDS } from '@/lib/seo-config'
 import { IMAGES, siteImageUrl } from '@/lib/images'
 
 const playfair = Playfair_Display({
@@ -25,22 +26,11 @@ const ogImage = siteImageUrl(IMAGES.hero, siteUrl)
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${AURA.name} by Caivan | Mississauga Townhomes`,
-    template: `%s | ${AURA.name}`,
+    default: SEO.seoTitleHome,
+    template: `%s | ${AURA.seoProductName}`,
   },
-  description: `${AURA.name} by ${AURA.builder}: ${AURA.productType} in Mississauga's ${AURA.communityAcres}-acre Lakeview Village waterfront community. From the ${AURA.priceFromShort}, occupancy ${AURA.occupancy}. Register for VIP access.`,
-  keywords: [
-    'Aura Lakeview Village',
-    'Aura Lakeview Village Caivan',
-    'Aura townhomes Mississauga',
-    'Caivan Lakeview Village',
-    'Lakeview Village townhomes',
-    'pre-construction townhomes Mississauga',
-    'waterfront townhomes GTA',
-    'stacked townhomes Mississauga',
-    'townhomes near Long Branch GO',
-    'Aura floor plans',
-  ],
+  description: SEO.seoDescriptionHome,
+  keywords: [...SECONDARY_KEYWORDS],
   authors: [{ name: AURA.name }],
   creator: AURA.name,
   publisher: AURA.name,
@@ -59,22 +49,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     url: siteUrl,
-    siteName: AURA.name,
-    title: `${AURA.name} by Caivan | Mississauga Townhomes`,
-    description: `${AURA.productType} from the ${AURA.priceFromShort} in Lakeview Village. Register for VIP pricing and floor plans.`,
+    siteName: AURA.seoProductName,
+    title: SEO.seoTitleHome,
+    description: SEO.seoDescriptionHome,
     images: [
       {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `${AURA.name} by ${AURA.builder} - modern townhomes in Mississauga`,
+        alt: `${AURA.seoProductName} by ${AURA.builder} - modern stacked townhomes in Mississauga`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${AURA.name} by Caivan`,
-    description: `Pre-construction stacked townhomes in Mississauga's Lakeview Village. Register for VIP access.`,
+    title: SEO.seoTitleHome,
+    description: SEO.seoDescriptionHome,
     images: [ogImage],
   },
   alternates: {

@@ -4,7 +4,7 @@ import { AURA } from '@/lib/aura-config'
 import { getAllNeighborhoodSlugs } from '@/lib/neighborhoods'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
+  const lastModified = new Date(AURA.lastContentUpdate)
 
   const neighborhoodEntries: MetadataRoute.Sitemap = getAllNeighborhoodSlugs().map(
     (slug) => ({
@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}${AURA.buyingGuidePath}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.88,
     },
     {
       url: `${SITE_URL}${AURA.vsResalePath}`,

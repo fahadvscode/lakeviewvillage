@@ -9,8 +9,9 @@ import { AURA } from "@/lib/aura-config"
 import { AuraLogo } from "@/components/aura-logo"
 
 const navigation = [
-  { name: "Aura", href: AURA.canonicalPath },
+  { name: "Aura Townhomes", href: AURA.canonicalPath },
   { name: "Floor Plans", href: AURA.floorPlansPath },
+  { name: "Buying Guide", href: AURA.buyingGuidePath },
   { name: "About", href: "/about" },
   { name: "Lifestyle", href: "/lifestyle" },
   { name: "Neighborhoods", href: "/neighborhoods" },

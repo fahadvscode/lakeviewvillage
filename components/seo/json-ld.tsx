@@ -7,9 +7,10 @@ export function WebsiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: AURA.name,
+    name: AURA.seoProductName,
+    alternateName: [...AURA.alternateNames],
     url: SITE_URL,
-    description: `Independent guide to ${AURA.name} by ${AURA.builder}—${AURA.productType} in Mississauga's ${AURA.communityName}. Register for VIP access to pricing and floor plans.`,
+    description: `Independent guide to ${AURA.seoProductName} by ${AURA.builder}—${AURA.productType} in Mississauga's ${AURA.communityName}. Register for VIP access to pricing and floor plans.`,
   }
 
   return (
@@ -25,8 +26,9 @@ export function RealEstateAgentSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    name: AURA.name,
-    description: `Independent pre-construction advisory for ${AURA.name} by ${AURA.builder} in Mississauga, Ontario.`,
+    name: AURA.seoProductName,
+    alternateName: [...AURA.alternateNames],
+    description: `Independent pre-construction advisory for ${AURA.seoProductName} by ${AURA.builder} in Mississauga, Ontario.`,
     url: SITE_URL,
     areaServed: {
       "@type": "City",
@@ -46,6 +48,7 @@ export function RealEstateAgentSchema() {
     },
     priceRange: "$500K - $700K+",
     knowsAbout: [
+      AURA.seoProductName,
       AURA.name,
       `${AURA.builder} townhomes`,
       "Lakeview Village Mississauga",

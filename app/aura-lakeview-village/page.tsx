@@ -6,14 +6,16 @@ import { RegisterForm } from "@/components/register-form"
 import { TownhomeProductSchema, BreadcrumbSchema } from "@/components/seo/json-ld"
 import { LastUpdated } from "@/components/last-updated"
 import { AURA, PRICING_DISCLAIMER, auraUrl } from "@/lib/aura-config"
+import { SEO } from "@/lib/seo-config"
 import { IMAGES, siteImageUrl } from "@/lib/images"
 import { SITE_URL } from "@/lib/site-config"
 import { ArrowRight, Check } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: `${AURA.name} by Caivan | Floor Plans, Pricing & VIP Registration`,
-  description: `${AURA.name}: ${AURA.productType} by ${AURA.builder} in Mississauga. ${AURA.beds} beds, ${AURA.sqftDetail}, from ${AURA.priceFromShort}. Occupancy ${AURA.occupancy}. Register for VIP access.`,
+  title: SEO.seoTitleAura,
+  description: SEO.seoDescriptionAura,
   keywords: [
+    "Aura Lakeview Village Townhomes",
     "Aura Lakeview Village",
     "Aura Caivan Mississauga",
     "Aura townhomes Lakeview Village",
@@ -21,9 +23,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: auraUrl() },
   openGraph: {
-    title: `${AURA.name} by Caivan`,
-    description: `Stacked townhomes from the ${AURA.priceFromShort} in Lakeview Village.`,
-    images: [{ url: siteImageUrl(IMAGES.hero, SITE_URL), alt: AURA.name }],
+    title: SEO.seoTitleAura,
+    description: SEO.seoDescriptionAura,
+    images: [{ url: siteImageUrl(IMAGES.hero, SITE_URL), alt: AURA.seoProductName }],
   },
 }
 
@@ -49,8 +51,8 @@ export default function AuraLakeviewVillagePage() {
   return (
     <div className="flex flex-col">
       <TownhomeProductSchema
-        name={AURA.name}
-        description={`${AURA.productType} by ${AURA.builder} in ${AURA.communityName}, Mississauga.`}
+        name={AURA.seoProductName}
+        description={`${AURA.seoProductName} by ${AURA.builder}: ${AURA.productType} in ${AURA.communityName}, Mississauga.`}
         builder={AURA.builder}
         priceFrom={AURA.priceFrom}
         priceValue={AURA.priceValue}
@@ -82,10 +84,11 @@ export default function AuraLakeviewVillagePage() {
                 by {AURA.builder}
               </p>
               <h1 className="hero-title mt-4 font-serif text-white drop-shadow-md">
-                {AURA.name}
+                {AURA.seoProductName}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90 drop-shadow-sm">
-                {AURA.productType} with {AURA.beds} bedrooms in {AURA.communityName}.
+                {AURA.seoProductName}: {AURA.productType} with {AURA.beds} bedrooms in{" "}
+                {AURA.communityName}.
                 From the {AURA.priceFromShort}. Register for the next release.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -312,6 +315,14 @@ export default function AuraLakeviewVillagePage() {
                 View Floor Plans
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-none border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              asChild
+            >
+              <Link href={AURA.buyingGuidePath}>Buying Guide</Link>
             </Button>
             <Button
               size="lg"

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { RegisterForm } from "@/components/register-form"
 import { AboutRealtor } from "@/components/about-realtor"
@@ -8,8 +9,26 @@ import { VisibleAIAnswers } from "@/components/seo/ai-answer-blocks"
 import { LastUpdated } from "@/components/last-updated"
 import { SITE_URL } from "@/lib/site-config"
 import { AURA, auraUrl } from "@/lib/aura-config"
-import { IMAGES } from "@/lib/images"
+import { SEO } from "@/lib/seo-config"
+import { IMAGES, siteImageUrl } from "@/lib/images"
 import { ArrowRight, MapPin, Train, Home, Building2, Leaf } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: SEO.seoTitleHome,
+  description: SEO.seoDescriptionHome,
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: SEO.seoTitleHome,
+    description: SEO.seoDescriptionHome,
+    url: SITE_URL,
+    images: [
+      {
+        url: siteImageUrl(IMAGES.hero, SITE_URL),
+        alt: `${AURA.seoProductName} by ${AURA.builder}`,
+      },
+    ],
+  },
+}
 
 const stats = [
   { value: String(AURA.communityAcres), label: "Acres", sublabel: "Lakeview Village" },
@@ -55,8 +74,8 @@ export default function HomePage() {
   return (
     <>
       <TownhomeProductSchema
-        name={AURA.name}
-        description={`${AURA.productType} by ${AURA.builder} with ${AURA.beds} bedrooms in Mississauga's ${AURA.communityName} waterfront community.`}
+        name={AURA.seoProductName}
+        description={`${AURA.seoProductName} by ${AURA.builder}: ${AURA.productType} with ${AURA.beds} bedrooms in Mississauga's ${AURA.communityName} waterfront community.`}
         builder={AURA.builder}
         priceFrom={AURA.priceFrom}
         priceValue={AURA.priceValue}
@@ -84,12 +103,12 @@ export default function HomePage() {
                 by {AURA.builder}
               </p>
               <h1 className="hero-title font-serif text-white drop-shadow-md">
-                Aura Lakeview<br />
-                <span className="italic">Village</span>
+                {AURA.seoProductName}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90 drop-shadow-sm">
-                {AURA.productType} in Mississauga&apos;s {AURA.communityAcres}-acre waterfront
-                master plan. From the {AURA.priceFromShort}. Occupancy {AURA.occupancy}.
+                {AURA.seoProductName} are {AURA.productType} by {AURA.builder} in
+                Mississauga&apos;s {AURA.communityAcres}-acre waterfront master plan. From the{" "}
+                {AURA.priceFromShort}. Occupancy {AURA.occupancy}.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Button
@@ -142,11 +161,11 @@ export default function HomePage() {
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Overview</p>
               <h2 className="section-title mt-4 font-serif text-foreground">
-                What is<br />
-                <span className="italic">{AURA.name}?</span>
+                What are<br />
+                <span className="italic">{AURA.seoProductName}?</span>
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                {AURA.name} is an exclusive collection of {AURA.productType} by{" "}
+                {AURA.seoProductName} are an exclusive collection of {AURA.productType} by{" "}
                 {AURA.builder} in {AURA.communityName}, Mississauga—one of the GTA&apos;s most
                 ambitious waterfront revitalizations. Phase 1 delivers approximately{" "}
                 {AURA.phase1Units} homes with contemporary architecture, private outdoor spaces,
@@ -163,7 +182,7 @@ export default function HomePage() {
                 href={AURA.canonicalPath}
                 className="group mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-widest text-foreground"
               >
-                <span className="link-underline">Explore Aura in Detail</span>
+                <span className="link-underline">Explore {AURA.seoProductName}</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -227,6 +246,9 @@ export default function HomePage() {
                 Floor Plans & Pricing
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href={AURA.buyingGuidePath}>Buying Guide</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/discovery-centre">

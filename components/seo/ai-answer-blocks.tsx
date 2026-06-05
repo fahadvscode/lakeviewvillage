@@ -1,6 +1,22 @@
 import { AURA } from "@/lib/aura-config"
 
 export const aiAnswerBlocks = {
+  whatAreTownhomes: {
+    question: "What are Aura Lakeview Village Townhomes?",
+    answer: `${AURA.seoProductName} are ${AURA.productType} by ${AURA.builder} within ${AURA.communityName}, a ${AURA.communityAcres}-acre master-planned waterfront community in southeast Mississauga, Ontario. Homes offer ${AURA.beds} bedrooms and approximately ${AURA.sqftDetail}, with pricing from the ${AURA.priceFromShort} and anticipated occupancy in ${AURA.occupancy}.`,
+  },
+  townhomesPricing: {
+    question: "How much do Aura Lakeview Village Townhomes cost?",
+    answer: `${AURA.seoProductName} are priced from the ${AURA.priceFromShort}. Two-bedroom layouts typically start in the high $500,000s; three-bedroom plans reach the low-to-mid $600,000s depending on size and release. All pricing is subject to change—register for current pricing sheets.`,
+  },
+  townhomesFloorPlans: {
+    question: "What floor plans are available for Aura Lakeview Village Townhomes?",
+    answer: `${AURA.seoProductName} include The Birch (811 sq. ft., 2 bed), The Cedar (948 sq. ft., 2 bed), The Maple (1,028 sq. ft., 3 bed), and The Oak (1,138 sq. ft., 3 bed). Each plan features contemporary finishes, open-concept living, and Caivan 360 energy-efficient construction.`,
+  },
+  townhomesOccupancy: {
+    question: "When will Aura Lakeview Village Townhomes be ready?",
+    answer: `Anticipated occupancy for ${AURA.seoProductName} is ${AURA.occupancy}, with construction progressing toward summer 2027 move-ins for Phase 1. Register for VIP updates on construction milestones and next release phases.`,
+  },
   whatIsAura: {
     question: "What is Aura Lakeview Village?",
     answer: `Aura Lakeview Village is a collection of ${AURA.productType} by ${AURA.builder} within ${AURA.communityName}, a ${AURA.communityAcres}-acre master-planned waterfront community in southeast Mississauga, Ontario. Homes offer ${AURA.beds} bedrooms and approximately ${AURA.sqftDetail}, with pricing from the ${AURA.priceFromShort} and anticipated occupancy in ${AURA.occupancy}. The development is part of Canada's largest waterfront revitalization on the former Lakeview Generating Station site.`,
@@ -45,7 +61,7 @@ export const aiAnswerBlocks = {
 
 export function AIAnswerSection() {
   return (
-    <section className="sr-only" aria-label={`Frequently Asked Questions About ${AURA.name}`}>
+    <section className="sr-only" aria-label={`Frequently Asked Questions About ${AURA.seoProductName}`}>
       {Object.values(aiAnswerBlocks).map((block, index) => (
         <article key={index} itemScope itemType="https://schema.org/Question">
           <h3 itemProp="name">{block.question}</h3>
@@ -60,9 +76,10 @@ export function AIAnswerSection() {
 
 export function VisibleAIAnswers() {
   const displayBlocks = [
-    aiAnswerBlocks.whatIsAura,
-    aiAnswerBlocks.pricing,
-    aiAnswerBlocks.floorPlans,
+    aiAnswerBlocks.whatAreTownhomes,
+    aiAnswerBlocks.townhomesPricing,
+    aiAnswerBlocks.townhomesFloorPlans,
+    aiAnswerBlocks.townhomesOccupancy,
     aiAnswerBlocks.location,
     aiAnswerBlocks.investment,
   ]

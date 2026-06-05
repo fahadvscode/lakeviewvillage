@@ -5,8 +5,24 @@ export type FaqCategory = { category: string; faqs: FaqItem[] }
 
 export const auraFaqCategories: FaqCategory[] = [
   {
-    category: `About ${AURA.name}`,
+    category: `About ${AURA.seoProductName}`,
     faqs: [
+      {
+        question: 'What are Aura Lakeview Village Townhomes?',
+        answer: `${AURA.seoProductName} are ${AURA.productType} by ${AURA.builder} in ${AURA.communityName}, Mississauga—a ${AURA.communityAcres}-acre waterfront master plan. Homes offer ${AURA.beds} bedrooms (${AURA.sqftDetail}), pricing from the ${AURA.priceFromShort}, and anticipated occupancy in ${AURA.occupancy}.`,
+      },
+      {
+        question: 'How much do Aura Lakeview Village Townhomes cost?',
+        answer: `${AURA.seoProductName} start from the ${AURA.priceFromShort}. Two-bedroom plans are typically in the high $500,000s; three-bedroom layouts reach the low-to-mid $600,000s depending on plan and release. Register for current pricing.`,
+      },
+      {
+        question: 'What floor plans are available for Aura Lakeview Village Townhomes?',
+        answer: 'Plans include The Birch (811 sq. ft., 2 bed), The Cedar (948 sq. ft., 2 bed), The Maple (1,028 sq. ft., 3 bed), and The Oak (1,138 sq. ft., 3 bed). See the floor plans page for full details.',
+      },
+      {
+        question: 'When will Aura Lakeview Village Townhomes be ready?',
+        answer: `${AURA.occupancyDetail}. Construction is progressing toward anticipated summer 2027 move-ins for Phase 1.`,
+      },
       {
         question: 'What is Aura Lakeview Village?',
         answer: `Aura Lakeview Village is a collection of ${AURA.productType} by ${AURA.builder} within ${AURA.communityName}, a ${AURA.communityAcres}-acre master-planned waterfront community in southeast Mississauga. Homes offer ${AURA.beds} bedrooms (${AURA.sqftDetail}) with pricing from the ${AURA.priceFromShort} and anticipated occupancy in ${AURA.occupancy}.`,

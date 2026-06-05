@@ -2,7 +2,15 @@ import { SITE_URL } from '@/lib/site-config'
 
 export const AURA = {
   name: 'Aura Lakeview Village',
+  seoProductName: 'Aura Lakeview Village Townhomes',
+  alternateNames: [
+    'Aura Lakeview Village Townhomes',
+    'Aura Towns',
+    'Aura by Caivan',
+    'Aura Lakeview Village',
+  ] as const,
   shortName: 'Aura',
+  buyingGuidePath: '/aura-lakeview-village/buying-guide',
   builder: 'Caivan Communities',
   builderShort: 'Caivan',
   siteUrl: SITE_URL,

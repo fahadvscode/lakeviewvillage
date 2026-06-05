@@ -5,7 +5,8 @@ import { AuraLogo } from "@/components/aura-logo"
 
 const footerLinks = {
   aura: [
-    { name: AURA.name, href: AURA.canonicalPath },
+    { name: AURA.seoProductName, href: AURA.canonicalPath },
+    { name: "Buying Guide", href: AURA.buyingGuidePath },
     { name: "Floor Plans & Pricing", href: AURA.floorPlansPath },
     { name: "Aura vs Resale", href: AURA.vsResalePath },
   ],
@@ -34,9 +35,9 @@ export function SiteFooter() {
               <AuraLogo tone="dark" imageClassName="h-10 sm:h-11 md:h-12" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-background/70">
-              {AURA.name} by {AURA.builder}—{AURA.productType} in Mississauga&apos;s{" "}
-              {AURA.communityAcres}-acre waterfront master plan. Register for VIP access to
-              pricing, floor plans, and buyer guidance.
+              {AURA.seoProductName} by {AURA.builder}—{AURA.productType} in
+              Mississauga&apos;s {AURA.communityAcres}-acre waterfront master plan. Register
+              for VIP access to pricing, floor plans, and buyer guidance.
             </p>
             <p className="mt-4 text-xs text-background/60">
               {dc.street}, {dc.city}, {dc.region} {dc.postalCode}

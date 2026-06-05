@@ -37,7 +37,7 @@ import {
 export const metadata: Metadata = {
   title: "Lifestyle & Investment | Is Lakeview Village a Good Investment?",
   description: "Lakeview Village lifestyle: waterfront living near Long Branch GO (20-25 min to Toronto). Investment potential in $275M master-planned community. Parks, trails, transit, and urban conveniences.",
-  keywords: ["Lakeview Village investment", "is Lakeview Village a good investment", "Mississauga waterfront lifestyle", "Long Branch GO townhomes", "Lakeview Village transit", "Lakeview Square", "Jim Tovey pier", "Lakeview Village Innovation District", "Canada longest pier Great Lakes"],
+  keywords: ["Aura Lakeview Village Townhomes", "Lakeview Village investment", "is Lakeview Village a good investment", "Mississauga waterfront lifestyle", "Long Branch GO townhomes", "Lakeview Village transit", "Lakeview Square", "Jim Tovey pier", "Lakeview Village Innovation District", "Canada longest pier Great Lakes"],
   alternates: {
     canonical: `${SITE_URL}/lifestyle`
   },

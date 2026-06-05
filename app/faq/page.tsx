@@ -6,6 +6,7 @@ import { FAQPageSchema, BreadcrumbSchema } from "@/components/seo/json-ld"
 import { LastUpdated } from "@/components/last-updated"
 import { auraFaqCategories, getAllAuraFaqs } from "@/lib/faq-data"
 import { AURA } from "@/lib/aura-config"
+import { SEO } from "@/lib/seo-config"
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/site-config"
 import {
@@ -18,12 +19,12 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: `FAQ | ${AURA.name} Questions Answered`,
-  description: `Answers about ${AURA.name} by ${AURA.builder}: pricing, floor plans, occupancy ${AURA.occupancy}, ownership, transit, and how to register.`,
+  title: SEO.seoTitleFaq,
+  description: `Answers about ${AURA.seoProductName} by ${AURA.builder}: pricing, floor plans, occupancy ${AURA.occupancy}, ownership, transit, and how to register.`,
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: `FAQ | ${AURA.name}`,
-    description: `Everything you need to know about ${AURA.name} in Mississauga's Lakeview Village.`,
+    title: SEO.seoTitleFaq,
+    description: `Everything you need to know about ${AURA.seoProductName} in Mississauga's Lakeview Village.`,
   },
 }
 
@@ -46,7 +47,7 @@ export default function FAQPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Badge className="mb-4">Frequently Asked Questions</Badge>
               <h1 className="font-serif text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                <span className="text-balance">{AURA.name} FAQ</span>
+                <span className="text-balance">{AURA.seoProductName} FAQ</span>
               </h1>
               <div className="mx-auto mt-8 max-w-2xl rounded-lg border border-primary/20 bg-card p-6 text-left">
                 <p className="leading-relaxed text-muted-foreground">

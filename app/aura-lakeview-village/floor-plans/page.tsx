@@ -16,17 +16,24 @@ import {
   PRICING_DISCLAIMER,
   auraUrl,
 } from "@/lib/aura-config"
+import { SEO } from "@/lib/seo-config"
 import { IMAGES, siteImageUrl } from "@/lib/images"
 import { SITE_URL } from "@/lib/site-config"
 import { ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Aura Lakeview Village Floor Plans & Pricing",
-  description: `Aura Lakeview Village floor plans: ${AURA.sqftDetail}, ${AURA.beds} bedrooms, from ${AURA.priceFromShort}. Birch, Cedar, Maple, and Oak layouts by Caivan. Register for current pricing.`,
+  title: SEO.seoTitleFloorPlans,
+  description: SEO.seoDescriptionFloorPlans,
   alternates: { canonical: auraUrl(AURA.floorPlansPath) },
   openGraph: {
-    title: "Aura Lakeview Village Floor Plans & Pricing",
-    images: [{ url: siteImageUrl(IMAGES.intKitchen, SITE_URL), alt: "Aura kitchen interior" }],
+    title: SEO.seoTitleFloorPlans,
+    description: SEO.seoDescriptionFloorPlans,
+    images: [
+      {
+        url: siteImageUrl(IMAGES.intKitchen, SITE_URL),
+        alt: `${AURA.seoProductName} kitchen interior`,
+      },
+    ],
   },
 }
 
@@ -51,8 +58,8 @@ export default function AuraFloorPlansPage() {
   return (
     <div className="flex flex-col">
       <TownhomeProductSchema
-        name={`${AURA.name} Floor Plans`}
-        description={`Floor plans for ${AURA.name} by ${AURA.builder}.`}
+        name={`${AURA.seoProductName} Floor Plans`}
+        description={`Floor plans for ${AURA.seoProductName} by ${AURA.builder}.`}
         builder={AURA.builder}
         priceFrom={AURA.priceFrom}
         priceValue={AURA.priceValue}
@@ -77,12 +84,12 @@ export default function AuraFloorPlansPage() {
             {AURA.name}
           </p>
           <h1 className="section-title mt-4 font-serif text-foreground">
-            Floor Plans &<br />
-            <span className="italic">Pricing</span>
+            {AURA.seoProductName}<br />
+            <span className="italic">Floor Plans & Pricing</span>
           </h1>
           <p className="mt-6 max-w-2xl text-muted-foreground">
-            Thoughtfully designed stacked townhome layouts from {AURA.sqftDetail} with{" "}
-            {AURA.beds} bedrooms. {PRICING_DISCLAIMER}
+            Compare {AURA.seoProductName} layouts from {AURA.sqftDetail} with {AURA.beds}{" "}
+            bedrooms. {PRICING_DISCLAIMER}
           </p>
           <LastUpdated date={AURA.lastContentUpdate} className="mt-4" />
         </div>

@@ -11,9 +11,9 @@ import { IMAGES } from "@/lib/images"
 import { MapPin, Clock, Building2, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: `Discovery Centre | ${AURA.name} & Lakeview Village`,
-  description: `Visit the Lakeview Village Discovery Centre at ${AURA.discoveryCentre.street}, Mississauga. Learn about ${AURA.name} by ${AURA.builder}. ${AURA.discoveryCentre.hours}.`,
-  keywords: ["Lakeview Village Discovery Centre", "Lakeview Village sales centre", "Jim Tovey Boulevard Mississauga", "Lakeview Village visit", "Mississauga waterfront sales"],
+  title: `Discovery Centre | ${AURA.seoProductName} & Lakeview Village`,
+  description: `Visit the Lakeview Village Discovery Centre at ${AURA.discoveryCentre.street}, Mississauga. Learn about ${AURA.seoProductName} by ${AURA.builder}. ${AURA.discoveryCentre.hours}.`,
+  keywords: ["Aura Lakeview Village Townhomes", "Lakeview Village Discovery Centre", "Lakeview Village sales centre", "Jim Tovey Boulevard Mississauga", "Lakeview Village visit", "Mississauga waterfront sales"],
   alternates: {
     canonical: `${SITE_URL}/discovery-centre`,
   },
